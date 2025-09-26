@@ -6,7 +6,7 @@ export default function Navbar() {
     <nav className="z-10 flex justify-between items-center px-21 w-full">
       <ul className="flex items-center gap-9">
         <li className="pt-2.5 pr-3 cursor-pointer">
-          <i>
+          <h1>
             <svg
               width="131"
               height="60"
@@ -76,18 +76,18 @@ export default function Navbar() {
                 </clipPath>
               </defs>
             </svg>
-          </i>
+          </h1>
         </li>
-        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] transition-all cursor-pointer">
+        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Movie
         </li>
-        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] transition-all cursor-pointer">
+        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Series
         </li>
-        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] transition-all cursor-pointer">
+        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Movie
         </li>
-        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] transition-all cursor-pointer">
+        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Series
         </li>
       </ul>

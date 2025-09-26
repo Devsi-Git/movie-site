@@ -1,14 +1,8 @@
-import { Poppins } from "next/font/google";
+import { poppins, zenDots } from "@/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 
 import Aside from "./components/Aside";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-poppins",
-});
 
 export const metadata: Metadata = {
   title: "MiMovie",
@@ -22,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-poppins text-white">
+      <body 
+        className={`bg-[#090909] ${zenDots.variable} ${poppins.variable}  font-poppins text-white`}
+      >
         <Aside />
         {children}
       </body>

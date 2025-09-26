@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
-@theme {
-  --font-poppins: "Poppins", sans-serif;
+
+@layer utilities {
+  .font-zen {
+    font-family: var(--font-zen);
+  }
+
+  .font-poppins {
+    font-family: var(--font-poppins);
+  }
 }
