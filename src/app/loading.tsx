@@ -18,13 +18,13 @@ export default function loading() {
         </div>
       </div>
 
-      <div className="mt-25 ml-35 flex flex-col gap-5">
-        <div className="mb-17 w-90 h-8 border-2 bg-[#8282821e] border-[#82828276] ${style} animate-pulse rounded-xl" />
+      <div className="mt-20 ml-35 flex flex-col gap-3">
+        <div className="mb-10 w-90 h-8 border-2 bg-[#8282821e] border-[#82828276] ${style} animate-pulse rounded-xl" />
 
         <LoadingSkeleton style="w-40 h-6 rounded-full" />
         <LoadingSkeleton style="w-80 h-20 rounded-xl" />
         <LoadingSkeleton style="w-50 h-6 rounded-full" />
-        <div className=" space-y-2">
+        <div className="my-1 space-y-2">
           <LoadingSkeleton style="w-100 h-3 rounded-full" />
           <LoadingSkeleton style="w-100 h-3 rounded-full" />
           <LoadingSkeleton style="w-100 h-3 rounded-full" />
