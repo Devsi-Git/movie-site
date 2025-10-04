@@ -2,7 +2,7 @@ import { poppins, zenDots } from "@/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 
-import Aside from "./components/Aside";
+import Aside from "./components/SideBar";
 
 export const metadata: Metadata = {
   title: "MiMovie",

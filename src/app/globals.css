@@ -12,9 +12,13 @@
 }
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none; /* برای کروم/سافاری */
+  display: none;
+  /* برای کروم/سافاری */
 }
+
 .no-scrollbar {
-  -ms-overflow-style: none;  /* برای IE/Edge */
-  scrollbar-width: none;     /* برای فایرفاکس */
+  -ms-overflow-style: none;
+  /* برای IE/Edge */
+  scrollbar-width: none;
+  /* برای فایرفاکس */
 }

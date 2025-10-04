@@ -15,7 +15,8 @@ export default async function FilmSection() {
 
       <span className="flex bg-[#6A6A6A] mt-2 mb-4 w-[79%] h-px" />
 
-      <div className="flex justify-start gap-5 w-[79%]">
+      <div className="flex justify-start items-center gap-5 w-[79%]">
+        <span className="text-sm pl-2.5"> Sort By </span>
         <SortBtn on={false} />
         <SortBtn on={true} />
         <SortBtn on={false} />
