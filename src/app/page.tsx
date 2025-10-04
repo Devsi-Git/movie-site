@@ -1,11 +1,12 @@
 import FilmSection from "./components/FilmSection";
 import Header from "./components/Header";
-import LoadingSkeleton from "./components/LoadingSkeleton";
+
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
     <>
-    <Header />
+      <Header />
       <main>
         <FilmSection />
       </main>
