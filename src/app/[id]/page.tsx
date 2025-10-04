@@ -1,7 +1,6 @@
 import { getFilmById } from "@/supabase/films";
 import Header from "./Header";
 import Image from "next/image";
-import LoadingSkeleton from "../components/LoadingSkeleton";
 
 interface PageProps {
   params: { id: string };
