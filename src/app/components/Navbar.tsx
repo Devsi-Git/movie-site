@@ -3,11 +3,12 @@ import { GoBellFill } from "react-icons/go";
 
 export default function Navbar() {
   return (
-    <nav className="z-10 flex justify-between items-center px-21 w-full">
-      <ul className="flex items-center gap-9">
-        <li className="pt-2.5 pr-3 cursor-pointer">
+    <nav className="z-10 flex justify-between items-center max-lg:px-17 px-21 w-full">
+      <ul className="flex items-center max-lg:gap-7 max-md:gap-6 gap-9">
+        <li className="pt-2.5 max-lg:pr-0 pr-3 cursor-pointer">
           <h1>
             <svg
+              className="max-lg:w-28 max-md:w-24"
               width="131"
               height="60"
               viewBox="0 0 131 60"
@@ -78,22 +79,22 @@ export default function Navbar() {
             </svg>
           </h1>
         </li>
-        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
+        <li className="text-shadow-white  max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Movie
         </li>
-        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
+        <li className="text-shadow-white max-lg:text-sm  hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Series
         </li>
-        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
+        <li className="text-shadow-white  max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Movie
         </li>
-        <li className="text-shadow-white hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
+        <li className="text-shadow-white  max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Series
         </li>
       </ul>
-      <div className="flex items-center gap-6">
+      <div className="flex items-center max-md:gap-4 gap-6">
         <GoBellFill className="text-lg" />
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center max-lg:text-sm max-md:gap-2 gap-2.5">
           userName
           <Image width={35} height={35} src="/Ellipse 1.png" alt="profile" />
         </div>

@@ -1,6 +1,6 @@
 import MainHeader from "./MainHeader";
 import Navbar from "./Navbar";
-import Search from "./Search";
+import Search from "./SearchBox";
 
 export default function Header() {
   return (
@@ -8,7 +8,7 @@ export default function Header() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#000000e4] to-[#00000017] to-80%"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-[#000000d3] to-[#00000017] to-80%"></div>
 
-      <div className="z-10 relative flex flex-col items-start gap-18">
+      <div className="z-10 relative flex flex-col items-start gap-18 max-lg:gap-16">
         <Navbar />
         <div className="ml-30">
           <Search />

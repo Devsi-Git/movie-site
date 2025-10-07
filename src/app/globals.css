@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 
+
 @layer utilities {
   .font-zen {
     font-family: var(--font-zen);
@@ -11,14 +12,11 @@
   }
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-  /* برای کروم/سافاری */
+@theme {
+  --breakpoint-lg: 1025px;
+  --breakpoint-md: 769px;
 }
 
-.no-scrollbar {
-  -ms-overflow-style: none;
-  /* برای IE/Edge */
-  scrollbar-width: none;
-  /* برای فایرفاکس */
+.swiper-scrollbar {
+  display: none !important;
 }
