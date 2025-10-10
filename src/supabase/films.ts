@@ -1,8 +1,27 @@
 import { supabase } from "./initialize";
 
-export async function getFilms() {
-  const { data: films, error } = await supabase.from("films").select("*");
+export async function getFilms(
+  searchParams: { [key: string]: string | undefined } = {}
+) {
+  let query = supabase.from("films").select("*");
 
+  if (searchParams) {
+    const params = await searchParams;
+    const year = params.year;
+    const rate = params.rate;
+
+    if (year) {
+      const [minYear, maxYear] = year.split("-").map(Number);
+      query = query.gte("year", minYear).lte("year", maxYear);
+    }
+
+    if (rate) {
+      const [minRate, maxRate] = rate.split("-").map(Number);
+      query = query.gte("rate", minRate).lte("rate", maxRate);
+    }
+  }
+
+  const { data: films, error } = await query;
   if (error || !films) {
     throw new Error(error?.message);
   }

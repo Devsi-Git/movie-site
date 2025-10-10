@@ -1,7 +1,7 @@
 import { FaPlay } from "react-icons/fa";
 import { GoPlus, GoStar, GoStarFill } from "react-icons/go";
 
-export default function MainHeader() {
+export default function HeroSection() {
   return (
     <div className="space-y-2 mt-18 max-lg:mt-16 max-w-140">
       <div className="font-semibold text-[#B4B4B4] max-lg:text-xs text-sm  ">

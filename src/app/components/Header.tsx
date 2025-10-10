@@ -1,4 +1,4 @@
-import MainHeader from "./MainHeader";
+import HeroSection from "./HeroSection";
 import Navbar from "./Navbar";
 import Search from "./SearchBox";
 
@@ -10,9 +10,9 @@ export default function Header() {
 
       <div className="z-10 relative flex flex-col items-start gap-18 max-lg:gap-16">
         <Navbar />
-        <div className="ml-30">
+        <div className="ml-30 ">
           <Search />
-          <MainHeader />
+          <HeroSection />
         </div>
       </div>
     </header>

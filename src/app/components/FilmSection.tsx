@@ -1,10 +1,18 @@
 import { PiFilmReel } from "react-icons/pi";
 import { getFilms } from "@/supabase/films";
-import SortBtn from "./SortBtn";
 import FilmSlider from "./FilmSlider";
+import FilterBar from "./FilterBar";
 
-export default async function FilmSection() {
-  const data = await getFilms();
+export default async function FilmSection({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | undefined };
+}) {
+  const data = await getFilms(searchParams);
+
+  const params = await searchParams;
+  const year = params?.year;
+  const rate = params?.rate;
 
   return (
     <article className="flex flex-col items-center mt-12">
@@ -13,17 +21,15 @@ export default async function FilmSection() {
         Series
       </h3>
 
-      <span className="flex bg-[#6A6A6A] mt-2 mb-4 w-[79%] h-px" />
+      <span className="flex bg-[#6A6A6A] mt-2.5 mb-4.5 w-[79%] h-px" />
 
-      <div className="flex justify-start items-center gap-5 w-[79%]">
-        <span className="text-sm max-lg:text-xs pl-2.5"> Sort By </span>
-        <SortBtn on={false} />
-        <SortBtn on={true} />
-        <SortBtn on={false} />
-        <SortBtn on={false} />
-      </div>
+      <FilterBar rate={rate} year={year} />
 
-      <FilmSlider data={data} />
+      {data && data.length > 0 ? (
+        <FilmSlider data={data} />
+      ) : (
+        <div className="my-30"> Unfortunately nothing found!</div>
+      )}
     </article>
   );
 }

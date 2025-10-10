@@ -25,28 +25,30 @@ type Film = {
 export default function FilmSlider({ data }: { data: Film[] }) {
   return (
     <Swiper
-      className="my-6 w-[80%]"
+      className="my-7 w-[79%] "
       modules={[Scrollbar, Autoplay, Keyboard, EffectCoverflow, A11y]}
       breakpoints={{
         768: {
-          slidesPerView: 4,
-          spaceBetween: 20,
+          slidesPerView: 3,
+          centeredSlides: true,
         },
         1024: {
-          slidesPerView: 5,
-          spaceBetween: 35,
+          slidesPerView: 4,
+          centeredSlides: true,
         },
         1280: {
-          slidesPerView: 6,
-          spaceBetween: 30,
+          slidesPerView: 5,
+          centeredSlides: true,
         },
         1440: {
-          slidesPerView: 7,
-          spaceBetween: 45,
+          slidesPerView: 6,
+          spaceBetween: 35,
+          centeredSlides: true,
         },
       }}
       autoplay={{ delay: 2000, disableOnInteraction: false }}
       keyboard={{ enabled: true }}
+      loopAdditionalSlides={2}
       grabCursor={true}
       speed={1400}
       initialSlide={5}
@@ -63,7 +65,6 @@ export default function FilmSlider({ data }: { data: Film[] }) {
       loop={true}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSlideChange={() => console.log("slide change")}
     >
       {data.map((item) => (
         <SwiperSlide key={item.id}>
