@@ -10,7 +10,7 @@ export default function Header() {
 
       <div className="z-10 relative flex flex-col items-start gap-18 max-lg:gap-16">
         <Navbar />
-        <div className="ml-30 ">
+        <div className="ml-35 ">
           <Search />
           <HeroSection />
         </div>

@@ -12,7 +12,7 @@ type FilmProps = {
 
 export default function FilmCard({ id, name, pic, rate, year }: FilmProps) {
   return (
-    <Link href={`/${id}`}>
+    <Link href={`/movie/${id}`}>
       <section className="cursor-pointer rounded-lg relative items-center justify-center flex overflow-clip ">
         <div className="px-4 h-[253px] justify-center transition-all flex w-[170px] rounded-lg bg-[#000000bd] gap-4 opacity-0 transition-al flex-col items-center absolute hover:opacity-100">
           <h4 className="font-semibold text-sm text-center ">{name}</h4>

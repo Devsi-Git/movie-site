@@ -23,9 +23,9 @@ export async function getFilms(
 
   const { data: films, error } = await query;
   if (error || !films) {
-    throw new Error(error?.message);
+    return { data: {}, error: error?.message };
   }
-  return films;
+  return { data: films, error: "" };
 }
 
 export async function getFilmById(id: number) {
@@ -36,7 +36,7 @@ export async function getFilmById(id: number) {
     .single();
 
   if (error || !film) {
-    throw new Error(error?.message);
+    return { data: {}, error: error?.message };
   }
-  return film;
+  return { data: film, error: "" };
 }

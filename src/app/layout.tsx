@@ -1,12 +1,12 @@
-import { poppins, zenDots } from "@/fonts";
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
+import { poppins, zenDots } from "@/lib/fonts";
 
 import Aside from "./components/SideBar";
 
 export const metadata: Metadata = {
-  title: "MiMovie",
-  description: "the best movie site",
+  title: "WAVEFLIX",
+  description: "the best movie site ever",
 };
 
 export default function RootLayout({

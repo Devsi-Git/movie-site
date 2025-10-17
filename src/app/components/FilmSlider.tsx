@@ -48,10 +48,10 @@ export default function FilmSlider({ data }: { data: Film[] }) {
       }}
       autoplay={{ delay: 2000, disableOnInteraction: false }}
       keyboard={{ enabled: true }}
-      loopAdditionalSlides={2}
+      loopAdditionalSlides={4}
       grabCursor={true}
       speed={1400}
-      initialSlide={5}
+      initialSlide={0}
       touchRatio={1.3}
       effect="coverflow"
       coverflowEffect={{
