@@ -1,15 +1,15 @@
 "use server";
-import z, { email } from "zod";
+import z from "zod";
 import { supabase } from "./initialize";
 
 interface State {
-  data: Record<string, object>;
-  error: string;
+  data: object;  
+  error: [];
 }
 
 const user = z.object({
-  email: z.email(),
-  password: z.string().min(6),
+  email: z.string().email("invalid email address!"),
+  password: z.string().min(6, "password cant be under 6 characters !"),
 });
 
 export async function signUp(prevState: State, formData: FormData) {
@@ -19,7 +19,9 @@ export async function signUp(prevState: State, formData: FormData) {
   const res = user.safeParse({ email, password });
 
   if (!res.success) {
-    return { data: {}, error: res.error.message };
+    const messages = res.error.issues.map((issue) => issue.message);
+    console.log(messages);
+    return { data: {}, error: messages };
   }
 
   const { data, error } = await supabase.auth.signUp({
@@ -28,8 +30,8 @@ export async function signUp(prevState: State, formData: FormData) {
   });
 
   if (error || !data) {
-    return { data: {}, error: error?.message };
+    return { data: {}, error: [error?.message] };
   }
 
-  return { data: data, error: "" };
+  return { data: data, error: [] };
 }
