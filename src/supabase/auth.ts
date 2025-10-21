@@ -2,36 +2,96 @@
 import z from "zod";
 import { supabase } from "./initialize";
 
-interface State {
-  data: object;  
-  error: [];
-}
-
 const user = z.object({
-  email: z.string().email("invalid email address!"),
+  name: z.string().min(3, "username cant be under 6 characters !"),
+  email: z.string().email("invalid email address !"),
   password: z.string().min(6, "password cant be under 6 characters !"),
 });
 
+export interface State {
+  data: Record<string, string>;
+  error: {
+    supabase: string;
+    email: string;
+    password: string;
+    name: string;
+  };
+}
+
 export async function signUp(prevState: State, formData: FormData) {
-  const email = formData.get("email");
-  const password = formData.get("password");
+  const name = formData.get("name") as string;
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
 
-  const res = user.safeParse({ email, password });
+  const res = user.safeParse({ email, password, name });
 
+  const errorObject: { [key: string]: string } = {};
   if (!res.success) {
-    const messages = res.error.issues.map((issue) => issue.message);
-    console.log(messages);
-    return { data: {}, error: messages };
+    const messages = res.error.issues;
+
+    messages.forEach((error) => {
+      const path = error.path[0].toString();
+      errorObject[path] = error.message;
+    });
+
+    return {
+      data: {},
+      error: {
+        supabase: "",
+        name: errorObject.name,
+        email: errorObject.email,
+        password: errorObject.password,
+      },
+    };
   }
 
-  const { data, error } = await supabase.auth.signUp({
-    email: res.data.email,
-    password: res.data.password,
-  });
+  const { data: loginData, error: loginError } =
+    await supabase.auth.signInWithPassword({
+      email: res.data.email,
+      password: res.data.password,
+    });
 
-  if (error || !data) {
-    return { data: {}, error: [error?.message] };
+  if (loginError) {
+    if (loginError.message.includes("Invalid login")) {
+      const { data: signUpData, error: signUpError } =
+        await supabase.auth.signUp({
+          email: res.data.email,
+          password: res.data.password,
+          options: {
+            data: { userName: res.data.name },
+          },
+        });
+
+      if (signUpError) {
+        return {
+          data: {},
+          error: {
+            supabase: signUpError.message,
+            email: "",
+            name: "",
+            password: "",
+          },
+        };
+      }
+      return {
+        data: signUpData,
+        error: { supabase: "", email: "", name: "", password: "" },
+      };
+    } else {
+      return {
+        data: {},
+        error: {
+          supabase: loginError.message,
+          email: "",
+          name: "",
+          password: "",
+        },
+      };
+    }
   }
 
-  return { data: data, error: [] };
+  return {
+    data: loginData,
+    error: { supabase: "", email: "", name: "", password: "" },
+  };
 }
