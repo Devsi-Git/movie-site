@@ -4,7 +4,6 @@ import { useActionState } from "react";
 import Input from "./Input";
 
 const initialState = {
-  data: {},
   error: { supabase: "", email: "", password: "", name: "" },
 };
 

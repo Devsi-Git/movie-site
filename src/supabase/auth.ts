@@ -1,6 +1,8 @@
 "use server";
 import z from "zod";
 import { supabase } from "./initialize";
+import { cookies } from "next/headers";
+import { Session } from "@supabase/supabase-js";
 
 const user = z.object({
   name: z.string().min(3, "username cant be under 6 characters !"),
@@ -9,7 +11,6 @@ const user = z.object({
 });
 
 export interface State {
-  data: Record<string, string>;
   error: {
     supabase: string;
     email: string;
@@ -35,7 +36,6 @@ export async function signUp(prevState: State, formData: FormData) {
     });
 
     return {
-      data: {},
       error: {
         supabase: "",
         name: errorObject.name,
@@ -64,7 +64,6 @@ export async function signUp(prevState: State, formData: FormData) {
 
       if (signUpError) {
         return {
-          data: {},
           error: {
             supabase: signUpError.message,
             email: "",
@@ -73,13 +72,13 @@ export async function signUp(prevState: State, formData: FormData) {
           },
         };
       }
+
+      if (signUpData?.session) await setSession(signUpData.session);
       return {
-        data: signUpData,
         error: { supabase: "", email: "", name: "", password: "" },
       };
     } else {
       return {
-        data: {},
         error: {
           supabase: loginError.message,
           email: "",
@@ -90,8 +89,26 @@ export async function signUp(prevState: State, formData: FormData) {
     }
   }
 
+  if (loginData?.session) await setSession(loginData.session);
+
   return {
-    data: loginData,
     error: { supabase: "", email: "", name: "", password: "" },
   };
+}
+
+async function setSession(session: Session) {
+  console.log(session);
+  const { access_token, refresh_token } = session;
+
+  const cookieStore = await cookies();
+  cookieStore.set("sb-access", access_token, {
+    httpOnly: true,
+    sameSite: "strict",
+    path: "/",
+  });
+  cookieStore.set("sb-refresh", refresh_token, {
+    httpOnly: true,
+    sameSite: "strict",
+    path: "/",
+  });
 }
