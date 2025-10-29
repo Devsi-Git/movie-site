@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GoHeart, GoHeartFill, GoStarFill } from "react-icons/go";
+import LikeBtn from "./LikeBtn";
+import { GoStarFill } from "react-icons/go";
 
 type FilmProps = {
   id: number;
@@ -11,6 +12,8 @@ type FilmProps = {
 };
 
 export default function FilmCard({ id, name, pic, rate, year }: FilmProps) {
+  const idStr = id.toString();
+
   return (
     <Link href={`/movie/${id}`}>
       <section className="cursor-pointer rounded-lg relative items-center justify-center flex overflow-clip ">
@@ -29,13 +32,10 @@ export default function FilmCard({ id, name, pic, rate, year }: FilmProps) {
               <GoStarFill className="text-xs mb-0.5" />
               {rate}
             </span>
-            <div className="relative w-6 pb-1 items-center flex justify-center group">
-              <GoHeart className="absolute transition-all text-lg group-hover:opacity-0" />
-              <GoHeartFill className="absolute text-red-600 text-lg opacity-0 group-hover:opacity-100 transition-all" />
-            </div>
+
+            <LikeBtn movieId={idStr} />
           </div>
         </div>
-
         <Image
           className=" max-lg:w-[140px] max-md:w-[130px] h-auto"
           src={pic}

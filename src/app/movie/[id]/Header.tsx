@@ -1,4 +1,7 @@
-import { GoHeart, GoHeartFill, GoStarFill } from "react-icons/go";
+"use client";
+
+import LikeBtn from "@/app/components/LikeBtn";
+import { GoStarFill } from "react-icons/go";
 
 type FilmProps = {
   film: {
@@ -11,6 +14,7 @@ type FilmProps = {
 };
 
 export default function Header({ film }: FilmProps) {
+  const id = film.id.toString();
   return (
     <header className="flex mt-28 justify-between w-[66%]">
       <div className="flex items-center gap-7">
@@ -30,10 +34,7 @@ export default function Header({ film }: FilmProps) {
           {film.rate}
         </span>
 
-        <div className="relative w-6 items-center flex justify-center group">
-          <GoHeart className="absolute transition-all text-xl group-hover:opacity-0" />
-          <GoHeartFill className="absolute text-red-600 text-xl opacity-0 group-hover:opacity-100 transition-all" />
-        </div>
+        <LikeBtn movieId={id} />
       </div>
     </header>
   );

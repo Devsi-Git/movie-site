@@ -1,8 +1,8 @@
 "use server";
 import z from "zod";
 import { supabase } from "./initialize";
-import { cookies } from "next/headers";
-import { Session } from "@supabase/supabase-js";
+import { setSession } from "@/lib/setSession";
+
 
 const user = z.object({
   name: z.string().min(3, "username cant be under 6 characters !"),
@@ -96,19 +96,4 @@ export async function signUp(prevState: State, formData: FormData) {
   };
 }
 
-async function setSession(session: Session) {
-  console.log(session);
-  const { access_token, refresh_token } = session;
 
-  const cookieStore = await cookies();
-  cookieStore.set("sb-access", access_token, {
-    httpOnly: true,
-    sameSite: "strict",
-    path: "/",
-  });
-  cookieStore.set("sb-refresh", refresh_token, {
-    httpOnly: true,
-    sameSite: "strict",
-    path: "/",
-  });
-}

@@ -1,7 +1,9 @@
+import { getUser } from "@/lib/getUser";
 import Image from "next/image";
 import { GoBellFill } from "react-icons/go";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const userName = await getUser();
   return (
     <nav className="z-10 flex justify-between items-center max-lg:px-17 px-21 w-full">
       <ul className="flex items-center max-lg:gap-7 max-md:gap-6 gap-9">
@@ -93,11 +95,14 @@ export default function Navbar() {
         </li>
       </ul>
       <div className="flex items-center max-md:gap-4 gap-6">
-        <GoBellFill className="text-lg" />
-        <div className="flex items-center max-lg:text-sm max-md:gap-2 gap-2.5">
-          userName
-          <Image width={35} height={35} src="/Ellipse 1.png" alt="profile" />
+        <div className="flex items-center font-semibold max-lg:text-sm max-md:gap-2 gap-2.5">
+          {userName ? userName?.user_metadata.userName : "SignIn please"}
         </div>
+        {userName ? (
+          <Image width={35} height={35} src="/Ellipse 1.png" alt="profile" />
+        ) : (
+          <div className="w-[33px] bg-gray-900 rounded-full border h-[33px]" />
+        )}
       </div>
     </nav>
   );
