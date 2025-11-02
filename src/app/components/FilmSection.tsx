@@ -2,6 +2,7 @@ import { PiFilmReel } from "react-icons/pi";
 import { getFilms } from "@/supabase/films";
 import FilmSlider from "./FilmSlider";
 import FilterBar from "./FilterBar";
+import FilmCard from "./FilmCard";
 
 export default async function FilmSection({
   searchParams,
@@ -9,6 +10,7 @@ export default async function FilmSection({
   searchParams?: { [key: string]: string | undefined };
 }) {
   const data = await getFilms(searchParams);
+  const cards = data.map((f) => <FilmCard key={f.id} {...f} />);
 
   const params = await searchParams;
   const year = params?.year;
@@ -26,9 +28,9 @@ export default async function FilmSection({
       <FilterBar rate={rate} year={year} />
 
       {data && data.length > 0 ? (
-        <FilmSlider data={data} />
+        <FilmSlider cards={cards} />
       ) : (
-        <div className="my-30"> Unfortunately nothing found!</div>
+        <div className="my-30">Unfortunately nothing found!</div>
       )}
     </article>
   );

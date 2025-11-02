@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LikeBtn from "./LikeBtn";
 import { GoStarFill } from "react-icons/go";
+import ClickWrapper from "./ClickWrapper";
 
 type FilmProps = {
   id: number;
@@ -32,8 +33,9 @@ export default function FilmCard({ id, name, pic, rate, year }: FilmProps) {
               <GoStarFill className="text-xs mb-0.5" />
               {rate}
             </span>
-
-            <LikeBtn movieId={idStr} />
+            <ClickWrapper>
+              <LikeBtn movieId={idStr} />
+            </ClickWrapper>
           </div>
         </div>
         <Image

@@ -2,7 +2,7 @@
 import z from "zod";
 import { supabase } from "./initialize";
 import { setSession } from "@/lib/setSession";
-
+import { redirect } from "next/navigation";
 
 const user = z.object({
   name: z.string().min(3, "username cant be under 6 characters !"),
@@ -74,6 +74,8 @@ export async function signUp(prevState: State, formData: FormData) {
       }
 
       if (signUpData?.session) await setSession(signUpData.session);
+      redirect("/");
+
       return {
         error: { supabase: "", email: "", name: "", password: "" },
       };
@@ -90,10 +92,9 @@ export async function signUp(prevState: State, formData: FormData) {
   }
 
   if (loginData?.session) await setSession(loginData.session);
+  redirect("/");
 
   return {
     error: { supabase: "", email: "", name: "", password: "" },
   };
 }
-
-

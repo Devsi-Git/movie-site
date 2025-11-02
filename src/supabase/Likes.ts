@@ -5,9 +5,6 @@ import { supabase } from "./initialize";
 import { redirect } from "next/navigation";
 
 export async function initial(movieId: string) {
-  console.log(
-    "step 111111111111111111111111111111111111111111111111111111111111111111"
-  );
   const user = await getUser();
 
   const userId = user?.id;
@@ -24,6 +21,7 @@ export async function initial(movieId: string) {
 
 export async function toggleLike(movieId: string) {
   const { userId, data } = await initial(movieId);
+
   if (!userId) {
     redirect("/loginORsignup");
   }
@@ -36,7 +34,7 @@ export async function toggleLike(movieId: string) {
       .eq("user_id", userId);
 
     if (error) {
-      return null;
+      throw new Error();
     }
   } else {
     const { data: likeData, error } = await supabase
@@ -45,17 +43,13 @@ export async function toggleLike(movieId: string) {
       .select();
 
     if (error || !likeData) {
-      return null;
+      throw new Error();
     }
-
-    return likeData;
   }
 }
 
 export async function isLiked(movieId: string) {
-  const { userId, data } = await initial(movieId);
+  const { data } = await initial(movieId);
 
-  if (data && userId) {
-    return true;
-  } else return false;
+  return !!data;
 }
