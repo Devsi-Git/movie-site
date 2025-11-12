@@ -1,3 +1,4 @@
+"use server";
 import { supabase } from "./initialize";
 
 export async function getFilms(
@@ -39,4 +40,23 @@ export async function getFilmById(id: number) {
     return [];
   }
   return film;
+}
+
+export async function searchFilms(searchParam: string) {
+  if (searchParam.trim().length === 0) {
+    return null;
+  }
+
+  const { data, error } = await supabase
+    .from("films")
+    .select("*")
+    .ilike("name", `%${searchParam}%`);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  console.log(data);
+
+  return data;
 }

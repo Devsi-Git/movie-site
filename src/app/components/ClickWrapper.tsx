@@ -6,8 +6,8 @@ export default function ClickWrapper({
   children: React.ReactNode;
 }) {
   const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // جلوگیری از اجرای کلیک لینک
-    e.preventDefault(); // جلوگیری از رفتن به صفحه
+    e.stopPropagation(); 
+    e.preventDefault();
   };
 
   return <div onClick={handleClick}>{children}</div>;

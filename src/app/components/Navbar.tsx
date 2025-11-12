@@ -1,6 +1,5 @@
 import { getUser } from "@/lib/getUser";
 import Image from "next/image";
-import { GoBellFill } from "react-icons/go";
 
 export default async function Navbar() {
   const userName = await getUser();
