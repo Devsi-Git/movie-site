@@ -6,6 +6,7 @@ import { GoStarFill } from "react-icons/go";
 
 export default function SearchResult() {
   const { searchResult } = useContext(filmContext);
+  console.log(searchResult);
   return (
     <>
       {searchResult && searchResult.length > 0 && (

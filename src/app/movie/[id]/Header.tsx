@@ -16,7 +16,7 @@ type FilmProps = {
 export default function Header({ film }: FilmProps) {
   const id = film.id.toString();
   return (
-    <header className="flex mt-28 justify-between w-[66%]">
+    <header className="flex  justify-between w-[99%]">
       <div className="flex items-center gap-7">
         <h1 className="text-4xl">{film.name}</h1>
 

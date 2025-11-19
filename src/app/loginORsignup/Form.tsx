@@ -1,7 +1,7 @@
 "use client";
 import { signUp } from "@/supabase/auth";
 import { useActionState } from "react";
-import Input from "./Input";
+import Input from "../components/Input";
 
 const initialState = {
   error: { supabase: "", email: "", password: "", name: "" },

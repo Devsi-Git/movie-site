@@ -23,7 +23,7 @@ export const filmContext = createContext<FilmContextType>({
 });
 
 export function FilmProvider({ children }: { children: ReactNode }) {
-  const [searchResult, setSearchResult] = useState<Film[] | null>([]);
+  const [searchResult, setSearchResult] = useState<Film[] | null>(null);
 
   const handleSearch = async (searchParam: string) => {
     const res = await searchFilms(searchParam);
