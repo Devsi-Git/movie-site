@@ -53,3 +53,14 @@ export async function isLiked(movieId: string) {
 
   return !!data;
 }
+
+export async function getUserLike(id: string) {
+  const { data: likes, error } = await supabase
+    .from("likes")
+    .select("*")
+    .eq("user_id", id);
+  if (error || !likes) {
+    return [];
+  }
+  return likes;
+}

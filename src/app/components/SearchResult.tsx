@@ -1,20 +1,21 @@
 "use client";
 import { filmContext } from "@/lib/filmContext";
 import Image from "next/image";
+import Link from "next/link";
 import { useContext } from "react";
 import { GoStarFill } from "react-icons/go";
 
 export default function SearchResult() {
   const { searchResult } = useContext(filmContext);
-  console.log(searchResult);
   return (
     <>
       {searchResult && searchResult.length > 0 && (
         <div className="w-[40%] h-80 items-center scroll-thin overflow-auto flex flex-col gap-5">
           {searchResult.map((film) => (
-            <div
-              className="bg-[#38383880] gap-5 flex backdrop-blur-[2px] px-4 py-3 w-[90%] h-20 rounded-xl "
+            <Link
               key={film.id}
+              href={`/movie/${film.id}`}
+              className="bg-[#38383880] gap-5 flex backdrop-blur-[2px] px-4 py-3 w-[90%] h-20 rounded-xl "
             >
               <Image
                 className=" object-cover rounded-xl w-[70px] h-auto"
@@ -38,7 +39,7 @@ export default function SearchResult() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}

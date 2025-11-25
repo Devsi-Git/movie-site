@@ -26,6 +26,7 @@ export async function newComment(formData: FormData) {
 
   const filmId = String(formData.get("id"));
   const comment = String(formData.get("comment"));
+
   if (comment && comment.trim().length === 0) {
     return;
   }
