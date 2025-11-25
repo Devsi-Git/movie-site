@@ -4,12 +4,12 @@ export default async function CommentBox({ id }: { id: string }) {
   const comments = await getCommentByFilm(id);
 
   return (
-    <div className="max-w-[260px] space-y-2 p-2 w-[260] rounded-xl flex overflow-y-auto scroll-thin h-80 border border-[#6A6A6A] ">
+    <div className="max-w-[260px] space-y-2 p-2 w-[260] flex-col rounded-xl flex overflow-y-auto scroll-thin h-80 border border-[#6A6A6A] ">
       {comments.length > 0 ? (
         comments.map((item) => (
           <div
             key={item.id}
-            className="p-2 py-1.5 min-w-40 h-fit rounded-t-xl rounded-r-xl bg-gray-900"
+            className="p-2 py-1.5 min-w-40 h-fit w-fit rounded-t-xl rounded-r-xl bg-gray-900"
           >
             <div className="flex justify-between">
               <h4 className="text-sm text-gray-400">{item.whoComment}</h4>

@@ -50,3 +50,14 @@ export async function newComment(formData: FormData) {
 
   revalidatePath("/movie");
 }
+
+export async function getCommentByUser(id: string) {
+  const { data: comments, error } = await supabase
+    .from("comments")
+    .select("*")
+    .eq("user_id", id);
+  if (error || !comments) {
+    return [];
+  }
+  return comments;
+}

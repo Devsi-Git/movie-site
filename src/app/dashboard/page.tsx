@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getFilms } from "@/supabase/films";
 import MyLineChart from "./Chart";
 import { getUserLike } from "@/supabase/Likes";
+import UserComment from "./UserComment";
 
 export default async function page() {
   const user = await getUser();
@@ -44,8 +45,9 @@ export default async function page() {
       </header>
       <span className="flex bg-[#6A6A6A] mt-2 mb-4 w-[100%] h-px" />
 
-      <main>
+      <main className="flex justify-between px-5">
         <MyLineChart year={years} likedYears={likedYears} rateAvg={rateAvg} />
+        <UserComment id={user.id} />
       </main>
     </div>
   );
