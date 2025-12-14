@@ -45,7 +45,7 @@ export default async function page() {
       </header>
       <span className="flex bg-[#6A6A6A] mt-2 mb-4 w-[100%] h-px" />
 
-      <main className="flex justify-between px-5">
+      <main className="flex justify-around px-5">
         <MyLineChart year={years} likedYears={likedYears} rateAvg={rateAvg} />
         <UserComment id={user.id} />
       </main>

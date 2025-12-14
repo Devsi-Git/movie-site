@@ -18,12 +18,12 @@ export default async function FilmSection({
 
   return (
     <article className="flex flex-col items-center mt-12">
-      <h3 className="flex items-center self-start gap-3 pl-[11%] max-lg:text-lg text-xl">
+      <h3 className="flex items-center self-start gap-3 pl-[11%] max-md:pl-[15%] max-sm:text-base max-lg:text-lg text-xl">
         <PiFilmReel />
         Series
       </h3>
 
-      <span className="flex bg-[#6A6A6A] mt-2.5 mb-4.5 w-[79%] h-px" />
+      <span className="flex bg-[#6A6A6A] mt-2.5 mb-4.5 w-[79%] max-md:w-[70%] h-px" />
 
       <FilterBar rate={rate} year={year} />
 

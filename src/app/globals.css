@@ -15,6 +15,7 @@
 @theme {
   --breakpoint-lg: 1025px;
   --breakpoint-md: 769px;
+  --breakpoint-sm: 641px;
 }
 
 .swiper-scrollbar {

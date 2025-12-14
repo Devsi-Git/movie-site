@@ -15,7 +15,7 @@ export default async function UserComment({ id }: { id: string }) {
   console.log(filmsMap);
 
   return (
-    <div className="max-w-[260px] space-y-2 p-2 w-[260px] rounded-xl flex flex-col overflow-y-auto scroll-thin h-80 border border-[#6A6A6A]">
+    <div className="max-w-[300px] space-y-2 p-2 w-[300px] rounded-xl flex flex-col overflow-y-auto scroll-thin h-80 border border-[#6A6A6A]">
       {comments.length > 0 ? (
         comments.map((comment) => (
           <div

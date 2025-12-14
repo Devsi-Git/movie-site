@@ -20,11 +20,20 @@ export default function FilmSlider({ cards }: { cards: React.ReactElement[] }) {
       className="my-7 w-[79%]"
       modules={[Scrollbar, Autoplay, Keyboard, EffectCoverflow, A11y]}
       breakpoints={{
-        768: {
+        320: {
+          slidesPerView: 2,
+        },
+        500: {
+          spaceBetween: 35,
           slidesPerView: 3,
         },
-        1024: {
+        768: {
+          spaceBetween: 35,
           slidesPerView: 4,
+        },
+        1024: {
+          spaceBetween: 40,
+          slidesPerView: 5,
         },
         1280: {
           slidesPerView: 5,

@@ -26,7 +26,7 @@ export default function loading() {
             <LoadingSkeleton style="w-140 h-4 rounded-full" />
             <LoadingSkeleton style="w-50 h-4 rounded-full" />
             <div className="mt-10 space-y-3">
-              <LoadingSkeleton style="w-20 h-3 rounded-full" />
+              <LoadingSkeleton style="w-10 h-3 rounded-full" />
               <LoadingSkeleton style="w-20 h-3 rounded-full" />
             </div>
           </div>

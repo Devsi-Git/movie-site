@@ -4,7 +4,7 @@ import Image from "next/image";
 export default async function Navbar() {
   const user = await getUser();
   return (
-    <nav className="z-10 flex justify-between items-center max-lg:px-17 px-21 w-full">
+    <nav className="z-10 flex justify-between items-center max-[426px]:px-10 max-lg:px-17 px-21 w-full">
       <ul className="flex items-center max-lg:gap-7 max-md:gap-6 gap-9">
         <li className="pt-2.5 max-lg:pr-0 pr-3 cursor-pointer">
           <h1>
@@ -80,16 +80,16 @@ export default async function Navbar() {
             </svg>
           </h1>
         </li>
-        <li className="text-shadow-white  max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
+        <li className="text-shadow-white  max-md:hidden max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Movie
         </li>
-        <li className="text-shadow-white max-lg:text-sm  hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
+        <li className="text-shadow-white max-md:hidden max-lg:text-sm  hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Series
         </li>
-        <li className="text-shadow-white  max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
+        <li className="text-shadow-white max-md:hidden  max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Movie
         </li>
-        <li className="text-shadow-white  max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
+        <li className="text-shadow-white max-md:hidden  max-lg:text-sm hover:text-shadow-[0px_0px_4px] font-thin transition-all cursor-pointer">
           Series
         </li>
       </ul>

@@ -3,37 +3,36 @@ import LoadingSkeleton from "./components/LoadingSkeleton";
 export default function loading() {
   return (
     <div>
-      <div className="z-10 flex justify-between mt-3 items-center px-21 h-full w-full">
-        <ul className="flex items-center gap-9">
-          <LoadingSkeleton style="w-25 h-12 rounded-xl " />
-          <LoadingSkeleton style="w-16 h-6 rounded-full" />
-          <LoadingSkeleton style="w-16 h-6 rounded-full" />
-          <LoadingSkeleton style="w-16 h-6 rounded-full" />
-          <LoadingSkeleton style="w-16 h-6 rounded-full" />
-          <LoadingSkeleton style="w-16 h-6 rounded-full" />
+      <div className="z-10 flex justify-between mt-3  items-center px-21 max-md:px-10 max-[426px]:px-5 h-full w-full">
+        <ul className="flex items-center max-md:gap-5 gap-9">
+          <LoadingSkeleton style="w-25 max-[426px]:w-20  max-[426px]:h-8 h-12 rounded-xl " />
+          <LoadingSkeleton style="w-16 max-sm:hidden h-6 rounded-full" />
+          <LoadingSkeleton style="w-16 max-sm:hidden h-6 rounded-full" />
+          <LoadingSkeleton style="w-16 max-sm:hidden h-6 rounded-full" />
+          <LoadingSkeleton style="w-16 max-sm:hidden h-6 rounded-full" />
         </ul>
-        <div className="flex items-center gap-6">
-          <LoadingSkeleton style="w-20 h-6 rounded-full" />
-          <LoadingSkeleton style="w-10 h-10 rounded-full" />
+        <div className="flex items-center max-md:gap-3 gap-6">
+          <LoadingSkeleton style="w-20 h-6  max-[426px]:h-4  max-[426px]:w-13 rounded-full" />
+          <LoadingSkeleton style="w-10 h-10  max-[426px]:w-7  max-[426px]:h-7 rounded-full" />
         </div>
       </div>
 
-      <div className="mt-20 ml-35 flex flex-col gap-3">
-        <div className="mb-10 w-90 h-8 border-2 bg-[#8282821e] border-[#82828276] ${style} animate-pulse rounded-xl" />
+      <div className="mt-20 ml-35 max-md:ml-32 max-[426px]:ml-20 max-sm:ml-28   flex flex-col gap-3">
+        <div className="mb-10 w-90 h-8 border-2 max-sm:w-60  max-[426px]:h-6 max-[426px]:mb-15 max-[426px]:rounded-lg max-[426px]:w-50 bg-[#8282821e] border-[#82828276]  animate-pulse rounded-xl" />
 
-        <LoadingSkeleton style="w-40 h-6 rounded-full" />
-        <LoadingSkeleton style="w-80 h-20 rounded-xl" />
-        <LoadingSkeleton style="w-50 h-6 rounded-full" />
+        <LoadingSkeleton style="w-40 h-6  max-[426px]:w-30  max-[426px]:h-4 rounded-full" />
+        <LoadingSkeleton style="w-80 h-20 max-sm:w-70  max-[426px]:h-15  max-[426px]:w-60 rounded-xl" />
+        <LoadingSkeleton style="w-50 h-6 max-[426px]:w-40  max-[426px]:h-4 rounded-full" />
         <div className="my-1 space-y-2">
-          <LoadingSkeleton style="w-100 h-3 rounded-full" />
-          <LoadingSkeleton style="w-100 h-3 rounded-full" />
-          <LoadingSkeleton style="w-100 h-3 rounded-full" />
-          <LoadingSkeleton style="w-100 h-3 rounded-full" />
-          <LoadingSkeleton style="w-45 h-3 rounded-full" />
+          <LoadingSkeleton style="w-100 h-3 max-sm:w-85  max-[426px]:h-2 max-[426px]:w-70  rounded-full" />
+          <LoadingSkeleton style="w-100 h-3 max-sm:w-85  max-[426px]:h-2 max-[426px]:w-70 rounded-full" />
+          <LoadingSkeleton style="w-100 h-3 max-sm:w-85  max-[426px]:h-2 max-[426px]:w-70 rounded-full" />
+          <LoadingSkeleton style="w-100 h-3 max-sm:w-85  max-[426px]:h-2 max-[426px]:w-70 rounded-full" />
+          <LoadingSkeleton style="w-45 h-3 max-sm:w-35  max-[426px]:h-2 max-[426px]:w-25 rounded-full" />
         </div>
-        <div className="gap-8 flex ">
-          <LoadingSkeleton style="w-31 h-11 rounded-xl" />
-          <div className="mb-17 w-31 h-11 border-2 border-[#82828276] ${style} animate-pulse rounded-xl" />
+        <div className="gap-8 max-sm:gap-6 flex ">
+          <LoadingSkeleton style="w-31  max-[426px]:h-8 max-[426px]:w-20 h-11 max-sm:w-28 rounded-xl" />
+          <div className="mb-17 w-31 h-11  max-[426px]:h-8 max-[426px]:w-20 border-2 max-sm:w-28  border-[#82828276] ${style} animate-pulse rounded-xl" />
         </div>
       </div>
     </div>
