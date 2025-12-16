@@ -15,17 +15,17 @@ export default async function UserComment({ id }: { id: string }) {
   console.log(filmsMap);
 
   return (
-    <div className="max-w-[300px] space-y-2 p-2 w-[300px] rounded-xl flex flex-col overflow-y-auto scroll-thin h-80 border border-[#6A6A6A]">
+    <div className="max-w-[300px] space-y-2 p-2 w-[300px] max-sm:w-[280px] max-[376px]:w-[255px] max-[321px]:w-[220px] rounded-xl flex flex-col overflow-y-auto scroll-thin h-80 border border-[#6A6A6A]">
       {comments.length > 0 ? (
         comments.map((comment) => (
           <div
             key={comment.id}
             className="p-2 pr-3 py-1.5 min-w-40 h-fit w-fit rounded-t-xl rounded-r-xl bg-gray-900"
           >
-            <h4 className="text-sm text-gray-400">
+            <h4 className="text-sm max-[426px]:text-xs text-gray-400">
               on: {filmsMap[comment.id]?.name || "Unknown"}
             </h4>
-            <p className="pl-2 leading-5 mt-1 break-words text-gray-300">
+            <p className="pl-2 max-[426px]:text-sm leading-5 mt-1 break-words text-gray-300">
               {comment.content}
             </p>
           </div>

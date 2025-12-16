@@ -75,7 +75,7 @@ export default function MyLineChart({
   };
 
   return (
-    <div className="w-90 h-60">
+    <div className="w-90 max-[531px]:w-80 max-[531px]:h-55 max-[426px]:h-50 max-[426px]:w-70 h-60">
       <Line data={data} options={options} />
     </div>
   );

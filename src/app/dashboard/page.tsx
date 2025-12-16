@@ -38,14 +38,20 @@ export default async function page() {
   });
 
   return (
-    <div className=" w-screen h-screen flex justify-center flex-col px-30">
-      <header className="flex px-3 items-center justify-between">
-        <h1 className=" text-3xl">{user.user_metadata.userName}</h1>
-        <div>{user.email}</div>
+    <div className=" w-screen h-screen flex max-md:p-0 max-md:my-20 max-sm:my-13 justify-center flex-col px-30">
+      <header className="flex-col flex max-[426px]:mb-5 max-md:px-20 ">
+        <div className="flex px-3 max-[376px]:p-0 items-end justify-between">
+          <h1 className="max-sm:text-2xl max-[321px]:right-7 max-[321px]:relative text-3xl">
+            {user.user_metadata.userName}
+          </h1>
+          <div className="max-[426px]:absolute max-[321px]:right-15 max-[426px]:top-13 max-sm:text-sm">
+            {user.email}
+          </div>
+        </div>
+        <span className="block bg-[#6A6A6A] max-[321px]:w-[140%] self-center max-[376px]:w-[110%]  max-sm:mt-1 mt-2 mb-4 w-full h-px" />
       </header>
-      <span className="flex bg-[#6A6A6A] mt-2 mb-4 w-[100%] h-px" />
 
-      <main className="flex justify-around px-5">
+      <main className="flex max-md:flex-col max-lg:gap-7 max-md:mt-5 max-md:items-center justify-around px-5">
         <MyLineChart year={years} likedYears={likedYears} rateAvg={rateAvg} />
         <UserComment id={user.id} />
       </main>
