@@ -2,7 +2,7 @@ import { logout } from "@/lib/setSession";
 
 export default function page() {
   return (
-    <main className="justify-center h-dvh flex items-center">
+    <main className="justify-center h-dvh flex max-[426px]:text-sm items-center">
       <form action={logout}>
         <button
           type="submit"

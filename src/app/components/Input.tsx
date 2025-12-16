@@ -1,5 +1,3 @@
-
-
 export default function Input({
   type,
   name,
@@ -11,7 +9,7 @@ export default function Input({
 }) {
   return (
     <input
-      className="w-full py-2 focus:outline-0 px-2.5 border-[#6A6A6A] placeholder:text-sm border rounded-lg"
+      className="w-full py-2 max-sm:placeholder:text-xs focus:outline-0 px-2.5 border-[#6A6A6A] placeholder:text-sm border rounded-lg"
       placeholder={placeholder}
       type={type}
       name={name}
