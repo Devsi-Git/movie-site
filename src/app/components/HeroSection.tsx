@@ -7,7 +7,7 @@ import SearchResult from "./SearchResult";
 export default function HeroSection() {
   return (
     <FilmProvider>
-      <div className="pl-35 relative max-sm:pl-25  max-[426px]:pl-20 pr-20 gap-10 w-full flex ">
+      <div className="pl-35 relative max-sm:pl-25 max-[321px]:pl-15 max-[426px]:pl-20 pr-20 gap-10 w-full flex ">
         <div>
           <SearchBox />
           <div className="space-y-2 mt-18 max-lg:mt-16 max-w-140">
@@ -15,7 +15,7 @@ export default function HeroSection() {
               ACTION - SCIENCE FICTION
             </div>
 
-            <h2 className="font-zen text-6xl text-nowrap max-[501px]:text-[38px] max-[376px]:text-[36px] max-lg:text-5xl max-md:text-[40px] tracking-wide ">
+            <h2 className="font-zen text-6xl max-[321px]:text-[30px] text-nowrap max-[501px]:text-[38px] max-[376px]:text-[36px] max-lg:text-5xl max-md:text-[40px] tracking-wide ">
               PACIFIC RIM
             </h2>
 
@@ -50,7 +50,7 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <p className="py-2 font-light text-sm max-lg:text-xs max-sm:text-[11px] leading-5">
+            <p className="py-2 font-light text-sm max-lg:text-xs max-sm:text-[11px]  leading-5">
               Lorem ipsum dolor sit amet consectetur. Nunc sit eget pharetra ut
               at duis non justo turpis. Enim interdum etiam feugiat egestas.
               Egestas ipsum in egestas tristique eget. Nibh elementum ultrices

@@ -1,9 +1,9 @@
 import { getUser } from "@/lib/getUser";
 import { redirect } from "next/navigation";
 import { getFilms } from "@/supabase/films";
-import MyLineChart from "./Chart";
 import { getUserLike } from "@/supabase/Likes";
 import UserComment from "./UserComment";
+import MyLineChart from "./Chart";
 
 export default async function page() {
   const user = await getUser();
@@ -38,13 +38,16 @@ export default async function page() {
   });
 
   return (
-    <div className=" w-screen h-screen flex max-md:p-0 max-md:my-20 max-sm:my-13 justify-center flex-col px-30">
+    <div
+      className=" w-screen h-screen flex max-md:p-0 max-md:mt-10 max-md:justify-around justify-center
+     flex-col px-30"
+    >
       <header className="flex-col flex max-[426px]:mb-5 max-md:px-20 ">
         <div className="flex px-3 max-[376px]:p-0 items-end justify-between">
           <h1 className="max-sm:text-2xl max-[321px]:right-7 max-[321px]:relative text-3xl">
             {user.user_metadata.userName}
           </h1>
-          <div className="max-[426px]:absolute max-[321px]:right-15 max-[426px]:top-13 max-sm:text-sm">
+          <div className="max-[426px]:absolute max-[321px]:right-15 max-[426px]:top-20 max-sm:text-sm">
             {user.email}
           </div>
         </div>

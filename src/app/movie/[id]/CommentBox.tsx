@@ -4,7 +4,7 @@ export default async function CommentBox({ id }: { id: string }) {
   const comments = await getCommentByFilm(id);
 
   return (
-    <div className="max-w-[260px] space-y-2 p-2 w-[260] flex-col rounded-xl flex overflow-y-auto scroll-thin h-80 border border-[#6A6A6A] ">
+    <div className="max-w-[260px] space-y-2 p-2 w-[260px] max-[426px]:max-w-[300px] max-[376px]:max-w-[270px] max-[426px]:mt-10  max-lg:max-w-[380px]  max-lg:w-[380px] flex-col rounded-xl flex overflow-y-auto scroll-thin h-80 border border-[#6A6A6A] ">
       {comments.length > 0 ? (
         comments.map((item) => (
           <div
@@ -26,9 +26,11 @@ export default async function CommentBox({ id }: { id: string }) {
           </div>
         ))
       ) : (
-        <p className="  text-center text-sm leading-5 self-center text-gray-400">
-          Be the first who comment on this movie.
-        </p>
+        <div className="h-full flex items-center">
+          <p className="  text-center text-sm leading-5  text-gray-400">
+            Be the first who comment on this movie.
+          </p>
+        </div>
       )}
     </div>
   );

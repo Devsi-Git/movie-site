@@ -17,20 +17,22 @@ export default function Header({ film }: FilmProps) {
   const id = film.id.toString();
   return (
     <header className="flex  justify-between w-[99%]">
-      <div className="flex items-center gap-7">
-        <h1 className="text-4xl">{film.name}</h1>
+      <div className="flex items-center max-[426px]:gap-5 max-[376px]:gap-3 gap-7">
+        <h1 className="text-3xl max-md:text-2xl font-semibold max-[426px]:text-xl">
+          {film.name}
+        </h1>
 
         <time
           dateTime={film.year.toString()}
-          className="font-semibold pt-1 text-[#B4B4B4]"
+          className="font-semibold pt-1 max-md:text-sm text-[#B4B4B4]"
         >
           {film.year}
         </time>
       </div>
 
-      <div className="flex pt-2 gap-5">
-        <span className="flex gap-0.5 items-center font-semibold text-[#f5d835]">
-          <GoStarFill className="text-sm mb-0.5" />
+      <div className="flex pt-2  max-md:text-sm max-md:gap-3 max-[426px]:gap-1 gap-5">
+        <span className="flex gap-0.5 items-center pb-0.5 font-semibold text-[#f5d835]">
+          <GoStarFill className="text-sm mb-0.5 " />
           {film.rate}
         </span>
 
